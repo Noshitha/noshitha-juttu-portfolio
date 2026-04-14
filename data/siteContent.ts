@@ -1,7 +1,13 @@
 export const siteContent = {
   name: "Noshitha Juttu",
   role: "AI Systems, Retrieval, and Data Infrastructure",
+  shortRole:
+    "AI systems engineer focused on retrieval, NLP, and data platforms",
   location: "San Francisco, California",
+  locationShort: "California",
+  availabilityShort: "Open to AI, data, and software roles",
+  availability:
+    "Open to AI systems, applied AI, and data platform roles",
   tagline:
     "Building reliable AI systems across retrieval, NLP, inference optimization, and production-grade data platforms.",
   summary:
@@ -29,13 +35,33 @@ export const siteContent = {
     { label: "Contact", href: "#contact" },
   ],
   ctaLinks: [
-    { label: "Resume", href: "/Resume_Noshitha_Juttu.pdf", variant: "primary" },
-    { label: "GitHub", href: "https://github.com/Noshitha" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/noshitha-juttu/" },
-    { 
-      label: "Email", 
-      href: "https://mail.google.com/mail/?view=cm&fs=1&to=noshithajuttu@gmail.com" 
-    }
+    {
+      label: "Resume",
+      href: "/Resume_Noshitha_Juttu.pdf",
+      variant: "primary",
+      icon: "resume",
+    },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/noshitha-juttu/",
+      icon: "linkedin",
+    },
+    { label: "GitHub", href: "https://github.com/Noshitha", icon: "github" },
+    {
+      label: "Email",
+      href: "mailto:noshithajuttu@gmail.com",
+      icon: "email",
+    },
+    {
+      label: "Hugging Face",
+      href: "https://huggingface.co/Noshitha98",
+      icon: "huggingface",
+    },
+    {
+      label: "Google Scholar",
+      href: "#",
+      icon: "scholar",
+    },
   ],
   sections: {
     experience: {
@@ -94,6 +120,8 @@ export const siteContent = {
       company: "UMass BioNLP Lab",
       details: "Advisor: Prof. Hong Yu",
       period: "Sep 2025 – Jan 2026",
+      project: "Training-Free Multi-Agent Clinical Reasoning",
+      logo: "/logos/UMass.png",
       description:
         "Built a training-free multi-agent framework for SDOH prediction from clinical text, focused on inference-time refinement, reasoning stability, and limited-supervision settings.",
       highlights: [
@@ -107,64 +135,87 @@ export const siteContent = {
       company: "Adobe",
       details: "Advisors: Prof. Andrew McCallum & Franck Dernoncourt",
       period: "Jan 2025 – May 2025",
+      project: "On-Device MarianMT Inference Optimization",
+      logo: "/logos/Adobe.png",
       description:
         "Engineered an on-device inference optimization pipeline for MarianMT-based neural machine translation, balancing model size, decoding speed, and quality for edge deployment.",
       highlights: [
-        "Built a PyTorch → CoreML / ONNX Runtime workflow enabling INT8 and FP16 export for cross-platform inference.",
+        "Built a PyTorch to CoreML / ONNX Runtime workflow enabling INT8 and FP16 export for cross-platform inference.",
         "Reduced model size from 75M to 23M parameters and improved decoding throughput by about 20%.",
-        "Evaluated deployment thresholds using BLEU, TER, chrF, METEOR, COMET, BERTScore, and BLEURT.",
+        "Evaluated accuracy-latency-size trade-offs using BLEU, TER, chrF, METEOR, COMET, BERTScore, and BLEURT.",
       ],
     },
     {
-      role: "AI & Data Engineering Analyst",
+      role: "Data Engineer",
       company: "Deloitte USI",
       details: "Client: Public Utility",
-      period: "Sep 2021 – Jan 2024",
+      period: "Nov 2022 – Jan 2024",
+      project: "Utility Customer Data Platform",
+      logo: "/logos/Deloitte.png",
       description:
-        "Architected a centralized AWS data lakehouse and secure ingestion framework to improve data availability, governance, and analytics access.",
+        "Architected and maintained secure ingestion and transformation pipelines for utility billing, consumption, and daily customer activity data powering customer-facing digital experiences.",
       highlights: [
-        "Integrated API and SAP HANA sources through NiFi ingestion pipelines, reducing retrieval latency by 40%.",
-        "Implemented OAuth2-based authentication in NiFi to strengthen governance and secure high-throughput ingestion.",
-        "Built a custom Python-based NiFi processor that reduced batch load time from 3 hours to 30 minutes.",
-        "Maintained Airflow DAGs across NiFi, Glue, Athena, and Redshift to improve reliability and reduce manual intervention.",
-        "Designed partitioned Athena tables, optimized Redshift schemas, and QuickSight dashboards for near real-time reporting used by 1,000+ business users.",
+        "Supported data used by a customer base of 15M+ users across utility-service experiences and leadership-facing dashboards.",
+        "Developed a custom Python-based NiFi processor that reduced batch load times from 3 hours to 30 minutes.",
+        "Built workflows that integrated high-volume API and enterprise source data into AWS-based lakehouse layers for downstream analytics and application use.",
+        "Improved governance and reliability through OAuth-enabled ingestion, Airflow orchestration, schema evolution handling, and monitoring across Glue, Athena, and Redshift.",
       ],
     },
     {
-      role: "AI & Data Engineering Analyst",
+      role: "Data Engineer",
       company: "Deloitte USI",
       details: "Client: Fortune 100 Energy Utility",
-      period: "Sep 2021 – Jan 2024",
+      period: "Apr 2022 – Nov 2022",
+      project: "Enterprise ETL Migration to Databricks",
+      logo: "/logos/Deloitte.png",
       description:
-        "Modernized legacy ETL workflows and built scalable enterprise-grade data pipelines for large batch processing and downstream delivery.",
+        "Led migration of legacy Informatica BDM workflows to Databricks-based PySpark pipelines for a high-scale enterprise utility environment.",
       highlights: [
-        "Developed PySpark utilities on Databricks to replace legacy Informatica BDM pipelines, reducing processing time by 30%.",
-        "Architected raw-to-formatted and formatted-to-curated ETL workflows across AWS S3, Databricks, and Informatica.",
-        "Implemented SCD Type 1 and 2 logic with hash-based keys and audit tables for historical accuracy, lineage tracking, and compliance reporting.",
-        "Optimized multi-terabyte batch jobs with performance tuning, schema validation, and error handling, cutting runtime by 25%.",
+        "Reduced batch runtimes by 25-30% through Databricks migration, incremental processing, and better transformation design.",
+        "Received a Spot Award for ownership and impact during the migration effort.",
+        "Owned raw-to-formatted pipeline development for a migration program serving a growing downstream user base.",
+        "Worked in a high-oncall production environment, troubleshooting failures and improving reliability during migration cutovers.",
       ],
     },
     {
-      role: "AI & Data Engineering Analyst",
+      role: "Data / ML Engineer",
       company: "Deloitte USI",
       details: "Client: Healthcare Provider",
-      period: "Sep 2021 – Jan 2024",
+      period: "Nov 2021 – Apr 2022",
+      project: "Healthcare ELT & Patient Risk Analytics",
+      logo: "/logos/Deloitte.png",
       description:
-        "Designed and automated ETL pipelines across multi-source relational systems to support centralized reporting and enterprise analytics.",
+        "Designed and automated ELT pipelines across multi-source healthcare systems to centralize patient and operational data for downstream analytics.",
       highlights: [
-        "Built ETL workflows in Azure Data Factory and Diyotta to integrate multi-source relational databases into a centralized data repository.",
-        "Engineered a 3-layer data architecture from raw to transformed to reporting, with schema validation, deduplication, and standardized formatting.",
-        "Led validation and root-cause analysis across ingestion and transformation workflows, reducing downstream reporting errors by 20%.",
+        "Built a 3-layer architecture from raw to transformed to reporting with schema validation, deduplication, and standardized transformations.",
+        "Supported analytics workflows focused on identifying high-priority and critical-care patient signals from consolidated records.",
+        "Improved trust in downstream reporting by reducing ingestion and transformation errors through stronger validation.",
       ],
     },
-
+    {
+      role: "ML Engineer",
+      company: "Deloitte USI",
+      details: "Client: Used Car Dealers",
+      period: "Sep 2021 – Nov 2021",
+      project: "Used Car Pricing Intelligence",
+      logo: "/logos/Deloitte.png",
+      description:
+        "Analyzed used-car market data to identify price-driving factors across vehicle attributes, market trends, and resale patterns.",
+      highlights: [
+        "Built predictive modeling workflows to estimate used-car pricing and support pricing-related recommendations.",
+        "Improved interpretability by surfacing the most important feature drivers behind pricing outputs.",
+        "Positioned the system as a decision-support tool for competitive pricing and market-entry analysis.",
+      ],
+    },
     {
       role: "Data Scientist Intern",
       company: "Innodatatics",
       details: "",
       period: "Jun 2019 – Aug 2019",
+      project: "Airline Customer Churn Analytics",
+      logo: "/logos/innodatatics.jpeg",
       description:
-        "Worked on airline churn analysis using statistical testing and classical ML to identify customer retention drivers.",
+        "Worked on airline churn analysis using statistical testing and classical machine learning to identify customer retention drivers.",
       highlights: [
         "Performed EDA and feature engineering on 100K+ airline customer records.",
         "Built and validated a decision-tree churn model with 93.5% accuracy.",
@@ -202,26 +253,28 @@ export const siteContent = {
       tags: ["ESP32-S3", "IMU", "FFT", "Embedded ML"],
       link: "https://github.com/Noshitha/HandGesture-UAV",
     },
-    {
-      title: "Web Vulnerability Scanner",
-      type: "ML Security Tooling",
-      description:
-        "Developed a GUI-based ML tool to identify phishing, SQL injection, and cross-site scripting patterns in web URLs using Random Forest-based detection.",
-      tags: ["Random Forest", "Security", "GUI", "Classification"],
-      link: "https://github.com/Noshitha",
-    },
   ],
   hackathons: [
     {
       title: "BriefCheck",
-      hackathon: "Harvey x Counsel Stack Hackathon",
-      theme: "Legal Trust, Verification, and AI Reliability",
-      buildTime: "24 hours",
+      hackathon:
+        "LLM x Law Hackathon CodeX · Stanford Center for Legal Informatics",
+      theme: "Legal trust, verification, and AI reliability",
+      buildTime: "Weekend Build",
       type: "Hackathon · Legal AI",
       description:
-        "Built a rapid legal verification layer for AI-generated briefs, focused on trust scoring, citation verification, and surfacing hallucinated or outdated references.",
-      tags: ["Legal AI", "Verification", "RAG", "Trust Layer"],
-      link: "https://github.com/Noshitha",
+        "Built and pitched BriefCheck with Vatsala Jha as a post-draft verification layer for AI-assisted legal drafting, designed to catch fabricated citations, overruled precedent, misapplied holdings, and jurisdiction-sensitive enforceability issues before lawyers rely on generated briefs.",
+      insights: [
+        "Checked authority existence, holding support, jurisdictional enforceability, and regulatory updates.",
+        "Treated the LLM as an orchestrator over parsing, retrieval, and reasoning rather than only a generator.",
+        "Designed for adjacent workflows such as deposition questions, AI disclosure support, and MCP-style portability across web app, ChatGPT, and Claude.",
+      ],
+      tags: ["Legal AI", "Verification", "Retrieval", "MCP"],
+      link: "https://lnkd.in/gQusAN5v",
+      links: [
+        { label: "Live Demo", href: "https://lnkd.in/gQusAN5v" },
+        { label: "OpenAI", href: "https://lnkd.in/gTwXXdXa" },
+      ],
     },
     {
       title: "KDIGO Guideline-Aware Clinical Graph",
@@ -235,14 +288,19 @@ export const siteContent = {
       link: "https://github.com/Noshitha",
     },
     {
-      title: "Cactus x DeepMind Hackathon Project",
-      hackathon: "Cactus x DeepMind Hackathon",
-      theme: "AI-assisted rapid product/system prototyping",
-      buildTime: "10 hours",
-      type: "Hackathon · Rapid Prototype",
+      title: "Hybrid Edge-Cloud Routing for Tool-Calling AI",
+      hackathon: "Google DeepMind × Cactus (YC S25) AI Hackathon",
+      theme: "Hybrid inference, tool routing, and edge AI systems",
+      buildTime: "Hackathon Build",
+      type: "Hackathon · Inference Routing",
       description:
-        "Built a fast-moving prototype during the Cactus x DeepMind hackathon, focused on quickly turning an idea into a working system under time pressure. Emphasized rapid iteration, strong implementation speed, and technical execution under hackathon constraints without overstating unfinished parts.",
-      tags: ["Hackathon", "Rapid Prototype", "AI System", "0-to-1 Build"],
+        "Built a hybrid edge-plus-cloud routing system for tool-calling AI, using a local FunctionGemma-270M model for fast on-device execution and selectively escalating to Gemini when requests required stronger reasoning or multi-action reliability.",
+      insights: [
+        "Optimized routing across F1, on-device ratio, and speed instead of accuracy alone.",
+        "Found short prompts and retry-before-escalate worked better than few-shot prompting, hidden tools, or confidence-only fallback.",
+        "Framed hybrid inference as a systems design problem across context, routing policy, and recovery behavior.",
+      ],
+      tags: ["Edge AI", "Gemini", "Tool Routing", "Systems"],
       link: "https://github.com/Noshitha",
     },
   ],
