@@ -11,7 +11,7 @@ export const siteContent = {
   tagline:
     "Building reliable AI systems across retrieval, NLP, inference optimization, and production-grade data platforms.",
   summary:
-    "I work across the systems layer behind useful AI: retrieval pipelines, evaluation frameworks, on-device inference optimization, and large-scale data infrastructure. My background spans enterprise data engineering at Deloitte, model compression and deployment for multilingual translation at Adobe, and multi-agent reasoning research in clinical NLP at UMass BioNLP Lab.",
+    "I build at the intersection of data infrastructure and AI systems. My path runs from data science and enterprise engineering at Deloitte to NLP, on-device models, and agentic AI research at UMass Amherst and Adobe, with a growing focus on turning strong data foundations into reliable AI products.",
   heroImage:
     "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1800&q=80",
   profileImage: "/Noshitha_Profile_Picture.jpeg",
@@ -59,7 +59,7 @@ export const siteContent = {
     },
     {
       label: "Google Scholar",
-      href: "#",
+      href: "https://scholar.google.com/citations?hl=en&user=GSbtLvUAAAAJ",
       icon: "scholar",
     },
   ],
@@ -103,10 +103,10 @@ export const siteContent = {
   },
   about: {
     eyebrow: "About",
-    title: "I like building the layer between AI ideas and dependable systems.",
+    title: "Strong data foundations with practical AI systems.",
     body: [
-      "I’m an M.S. in Computer Science graduate from UMass Amherst with a background that combines data engineering, NLP, and applied AI systems. I’m most interested in the parts of AI that make systems actually usable: retrieval quality, inference constraints, evaluation, orchestration, and production reliability.",
-      "At Deloitte, I built cloud-native data platforms and large-scale ETL pipelines for enterprise clients. At Adobe, I worked on on-device inference optimization for MarianMT using pruning, transformer slimming, and quantization. At UMass BioNLP Lab, I explored training-free multi-agent reasoning for clinical text classification with reward-guided refinement and lightweight memory.",
+      "My journey started as a data scientist, where I saw how the right data and simple statistics could change real decisions. That pushed me deeper into data and AI engineering at Deloitte, where I spent nearly 2.5 years building data platforms, pipelines, and analytics systems across multiple clients and domains. Working in a Big Four environment taught me to integrate systems quickly, learn fast, and deliver under pressure, with that work recognized through three Deloitte awards.",
+      "I later moved to UMass Amherst for an M.S. in Computer Science to build stronger foundations in AI, NLP, and research. Here, I have worked alongside with prominent AI leaders and Adobe researcher and built on on-device model optimization, agentic systems.Actively involved in rapid AI product builds through Bay Area hackathons and community events.",
     ],
     stats: [
       { label: "Experience", value: "3+ Years" },
@@ -288,7 +288,7 @@ export const siteContent = {
       buildTime: "Hackathon Build",
       type: "Hackathon · Inference Routing",
       description:
-        "Built a hybrid edge-cloud routing system for tool-calling AI that decides when a small local FunctionGemma-270M model is enough and when to escalate to Gemini for stronger reasoning. The project focused on practical inference trade-offs across speed, accuracy, on-device execution, and recovery behavior, showing how smaller models and cloud models can work together instead of competing. The GitHub repository is linked below for anyone interested in the implementation.",
+        "Built a hybrid edge-cloud routing system for tool-calling AI that decides when a small language model (FunctionGemma-270M) is enough and when to escalate to Gemini for stronger reasoning. The project focused on practical inference trade-offs across speed, accuracy, on-device execution, and recovery behavior, showing how smaller models and cloud models can work together instead of competing.",
       tags: ["Edge AI", "Gemini", "Tool Routing", "Systems"],
       links: [
         {
