@@ -258,19 +258,13 @@ export const siteContent = {
     {
       title: "BriefCheck",
       hackathon:
-        "LLM x Law Hackathon CodeX · Stanford Center for Legal Informatics",
+        "LLM x Law Hackathon · Stanford CodeX",
       theme: "Legal trust, verification, and AI reliability",
-      buildTime: "Weekend Build",
+      buildTime: "One Day Build",
       type: "Hackathon · Legal AI",
       description:
-        "Built and pitched BriefCheck with Vatsala Jha as a post-draft verification layer for AI-assisted legal drafting, designed to catch fabricated citations, overruled precedent, misapplied holdings, and jurisdiction-sensitive enforceability issues before lawyers rely on generated briefs.",
-      insights: [
-        "Checked authority existence, holding support, jurisdictional enforceability, and regulatory updates.",
-        "Treated the LLM as an orchestrator over parsing, retrieval, and reasoning rather than only a generator.",
-        "Designed for adjacent workflows such as deposition questions, AI disclosure support, and MCP-style portability across web app, ChatGPT, and Claude.",
-      ],
+        "Built a verification layer that helps lawyers score and review their AI-drafted briefs before relying on them. It checks whether cited cases are real, still good law, support the argument being made, and fit the right jurisdiction, turning legal verification into a clearer trust signal. The project highlights rapid product execution across retrieval, LLM orchestration, domain reasoning, and practical AI safety.",
       tags: ["Legal AI", "Verification", "Retrieval", "MCP"],
-      link: "https://lnkd.in/gQusAN5v",
       links: [
         { label: "Live Demo", href: "https://lnkd.in/gQusAN5v" },
         { label: "OpenAI", href: "https://lnkd.in/gTwXXdXa" },
@@ -294,14 +288,14 @@ export const siteContent = {
       buildTime: "Hackathon Build",
       type: "Hackathon · Inference Routing",
       description:
-        "Built a hybrid edge-plus-cloud routing system for tool-calling AI, using a local FunctionGemma-270M model for fast on-device execution and selectively escalating to Gemini when requests required stronger reasoning or multi-action reliability.",
-      insights: [
-        "Optimized routing across F1, on-device ratio, and speed instead of accuracy alone.",
-        "Found short prompts and retry-before-escalate worked better than few-shot prompting, hidden tools, or confidence-only fallback.",
-        "Framed hybrid inference as a systems design problem across context, routing policy, and recovery behavior.",
-      ],
+        "Built a hybrid edge-cloud routing system for tool-calling AI that decides when a small local FunctionGemma-270M model is enough and when to escalate to Gemini for stronger reasoning. The project focused on practical inference trade-offs across speed, accuracy, on-device execution, and recovery behavior, showing how smaller models and cloud models can work together instead of competing. The GitHub repository is linked below for anyone interested in the implementation.",
       tags: ["Edge AI", "Gemini", "Tool Routing", "Systems"],
-      link: "https://github.com/Noshitha",
+      links: [
+        {
+          label: "GitHub Repo",
+          href: "https://github.com/Noshitha/functiongemma-hackathon",
+        },
+      ],
     },
   ],
   publications: [

@@ -627,11 +627,22 @@ export default function Home() {
             description={siteContent.sections.hackathons.description}
           />
           <div className="grid gap-5 md:grid-cols-3">
-            {siteContent.hackathons.map((build) => (
-              <article
-                className="flex min-h-[440px] flex-col rounded-lg border border-[#c9d9c8] bg-[#f7faf7] p-6 shadow-[0_18px_50px_rgba(23,25,20,0.055)]"
-                key={build.title}
-              >
+            {siteContent.hackathons.map((build) => {
+              const insights =
+                "insights" in build && Array.isArray(build.insights)
+                  ? (build.insights as string[])
+                  : [];
+              const links =
+                "links" in build && Array.isArray(build.links)
+                  ? (build.links as { label: string; href: string }[])
+                  : null;
+              const fallbackLink = "link" in build ? build.link : "#";
+
+              return (
+                <article
+                  className="flex min-h-[440px] flex-col rounded-lg border border-[#c9d9c8] bg-[#f7faf7] p-6 shadow-[0_18px_50px_rgba(23,25,20,0.055)]"
+                  key={build.title}
+                >
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-[#13795b]">
@@ -659,9 +670,9 @@ export default function Home() {
                 <p className="mt-5 flex-1 leading-7 text-[#555d52]">
                   {build.description}
                 </p>
-                {"insights" in build && build.insights ? (
+                {insights.length > 0 ? (
                   <ul className="mt-4 grid gap-2">
-                    {build.insights.slice(0, 3).map((insight) => (
+                    {insights.slice(0, 3).map((insight) => (
                       <li
                         className="flex gap-2.5 text-sm leading-6 text-[#444c42]"
                         key={insight}
@@ -676,8 +687,8 @@ export default function Home() {
                   <Tags items={build.tags} />
                 </div>
                 <div className="mt-6 flex flex-wrap gap-3">
-                  {"links" in build && build.links
-                    ? build.links.map((link) => (
+                  {links
+                    ? links.map((link) => (
                         <a
                           className="inline-flex text-sm font-semibold text-[#0f6b4f] hover:text-[#171914]"
                           href={link.href}
@@ -689,14 +700,15 @@ export default function Home() {
                     : (
                         <a
                           className="inline-flex text-sm font-semibold text-[#0f6b4f] hover:text-[#171914]"
-                          href={build.link}
+                          href={fallbackLink}
                         >
                           {siteContent.sections.hackathons.linkLabel}
                         </a>
                       )}
                 </div>
               </article>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
