@@ -116,7 +116,7 @@ export const siteContent = {
   },
   experience: [
     {
-      role: "Graduate Student Researcher",
+      role: "AI Researcher",
       company: "UMass BioNLP Lab",
       details: "Advisor: Prof. Hong Yu",
       period: "Sep 2025 – Jan 2026",
@@ -131,8 +131,8 @@ export const siteContent = {
       ],
     },
     {
-      role: "Graduate Student Extern",
-      company: "Adobe",
+      role: "Applied AI Extern",
+      company: "Adobe x UMass",
       details: "Advisors: Prof. Andrew McCallum & Franck Dernoncourt",
       period: "Jan 2025 – May 2025",
       project: "On-Device MarianMT Inference Optimization",
