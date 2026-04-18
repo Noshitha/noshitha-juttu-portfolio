@@ -2,16 +2,16 @@ export const siteContent = {
   name: "Noshitha Juttu",
   role: "AI Systems, Retrieval, and Data Infrastructure",
   shortRole:
-    "AI systems engineer focused on retrieval, NLP, and data platforms",
+    "Former Deloitte data engineer and MSCS candidate focused on AI systems",
   location: "San Francisco, California",
   locationShort: "California",
   availabilityShort: "Open to AI, data, and software roles",
   availability:
     "Open to AI systems, applied AI, and data platform roles",
   tagline:
-    "Building reliable AI systems across retrieval, NLP, inference optimization, and production-grade data platforms.",
+    "Former Deloitte data engineer and MSCS candidate building AI systems, LLM infrastructure, retrieval, and trustworthy applied AI products.",
   summary:
-    "I build at the intersection of data infrastructure and AI systems. My path runs from data science and enterprise engineering at Deloitte to NLP, on-device models, and agentic AI research at UMass Amherst and Adobe, with a growing focus on turning strong data foundations into reliable AI products.",
+    "I bring production data engineering experience from Deloitte USI into AI systems work at UMass Amherst, with current focus on LLM infrastructure, retrieval, verification, and inference optimization.",
   heroImage:
     "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1800&q=80",
   profileImage: "/Noshitha_Profile_Picture.jpeg",
@@ -103,10 +103,11 @@ export const siteContent = {
   },
   about: {
     eyebrow: "About",
-    title: "Strong data foundations with practical AI systems.",
+    title: "Former Deloitte data engineer, MSCS, AI systems builder.",
     body: [
-      "My journey started as a data scientist, where I saw how the right data and simple statistics could change real decisions. That pushed me deeper into data and AI engineering at Deloitte, where I spent nearly 2.5 years building data platforms, pipelines, and analytics systems across multiple clients and domains. Working in a Big Four environment taught me to integrate systems quickly, learn fast, and deliver under pressure, with that work recognized through three Deloitte awards.",
-      "I later moved to UMass Amherst for an M.S. in Computer Science to build stronger foundations in AI, NLP, and research. Here, I have worked alongside with prominent AI leaders and Adobe researcher and built on on-device model optimization, agentic systems.Actively involved in rapid AI product builds through Bay Area hackathons and community events.",
+      "I am a former Deloitte USI data engineer and M.S. Computer Science candidate at UMass Amherst, now focused on AI systems, LLM infrastructure, retrieval, and trustworthy applied AI.",
+      "At Deloitte, I spent nearly 2.5 years building production data platforms, pipelines, and analytics systems across utility, healthcare, and pricing domains, with that work recognized through three Deloitte awards.",
+      "At UMass Amherst and Adobe, I have worked on on-device model optimization, agentic systems, clinical reasoning, and rapid AI product builds through Bay Area hackathons and community events.",
     ],
     stats: [
       { label: "Experience", value: "3+ Years" },
@@ -136,7 +137,7 @@ export const siteContent = {
       details: "Advisors: Prof. Andrew McCallum & Franck Dernoncourt",
       period: "Jan 2025 – May 2025",
       project: "On-Device MarianMT Inference Optimization",
-      logo: "/logos/Adobe.png",
+      logo: "/logos/Adobe.jpg",
       description:
         "Engineered an on-device inference optimization pipeline for MarianMT-based neural machine translation, balancing model size, decoding speed, and quality for edge deployment.",
       highlights: [
@@ -146,12 +147,12 @@ export const siteContent = {
       ],
     },
     {
-      role: "Data Engineer",
+      role: "AI & Data Engineering Analyst",
       company: "Deloitte USI",
       details: "Client: Public Utility",
       period: "Nov 2022 – Jan 2024",
       project: "Utility Customer Data Platform",
-      logo: "/logos/Deloitte.png",
+      logo: "/logos/Deloitte.png?v=20260418",
       description:
         "Architected and maintained secure ingestion and transformation pipelines for utility billing, consumption, and daily customer activity data powering customer-facing digital experiences.",
       highlights: [
@@ -162,12 +163,12 @@ export const siteContent = {
       ],
     },
     {
-      role: "Data Engineer",
+      role: "AI & Data Engineering Analyst",
       company: "Deloitte USI",
       details: "Client: Fortune 100 Energy Utility",
       period: "Apr 2022 – Nov 2022",
       project: "Enterprise ETL Migration to Databricks",
-      logo: "/logos/Deloitte.png",
+      logo: "/logos/Deloitte.png?v=20260418",
       description:
         "Led migration of legacy Informatica BDM workflows to Databricks-based PySpark pipelines for a high-scale enterprise utility environment.",
       highlights: [
@@ -178,12 +179,12 @@ export const siteContent = {
       ],
     },
     {
-      role: "Data / ML Engineer",
+      role: "AI & Data Engineering Analyst",
       company: "Deloitte USI",
       details: "Client: Healthcare Provider",
       period: "Nov 2021 – Apr 2022",
       project: "Healthcare ELT & Patient Risk Analytics",
-      logo: "/logos/Deloitte.png",
+      logo: "/logos/Deloitte.png?v=20260418",
       description:
         "Designed and automated ELT pipelines across multi-source healthcare systems to centralize patient and operational data for downstream analytics.",
       highlights: [
@@ -193,12 +194,12 @@ export const siteContent = {
       ],
     },
     {
-      role: "ML Engineer",
+      role: "AI & Data Engineering Analyst",
       company: "Deloitte USI",
       details: "Client: Used Car Dealers",
       period: "Sep 2021 – Nov 2021",
       project: "Used Car Pricing Intelligence",
-      logo: "/logos/Deloitte.png",
+      logo: "/logos/Deloitte.png?v=20260418",
       description:
         "Analyzed used-car market data to identify price-driving factors across vehicle attributes, market trends, and resale patterns.",
       highlights: [
@@ -224,6 +225,15 @@ export const siteContent = {
     },
   ],
   projects: [
+    {
+      title: "BriefCheck",
+      type: "Flagship Project · Legal AI Verification",
+      featured: true,
+      description:
+        "Built a verification layer for AI-drafted legal briefs that checks whether cited cases are real, still good law, support the argument, and fit the right jurisdiction. The project combines retrieval, LLM orchestration, domain reasoning, and product judgment around trust and practical AI safety.",
+      tags: ["Legal AI", "Verification", "Retrieval", "LLM Orchestration", "MCP"],
+      link: "https://lnkd.in/gQusAN5v",
+    },
     {
       title: "RAG-based Research Copilot",
       type: "Retrieval · NLP Systems",
@@ -255,21 +265,6 @@ export const siteContent = {
     },
   ],
   hackathons: [
-    {
-      title: "BriefCheck",
-      hackathon:
-        "LLM x Law Hackathon · Stanford CodeX",
-      theme: "Legal trust, verification, and AI reliability",
-      buildTime: "One Day Build",
-      type: "Hackathon · Legal AI",
-      description:
-        "Built a verification layer that helps lawyers score and review their AI-drafted briefs before relying on them. It checks whether cited cases are real, still good law, support the argument being made, and fit the right jurisdiction, turning legal verification into a clearer trust signal. The project highlights rapid product execution across retrieval, LLM orchestration, domain reasoning, and practical AI safety.",
-      tags: ["Legal AI", "Verification", "Retrieval", "MCP"],
-      links: [
-        { label: "Live Demo", href: "https://lnkd.in/gQusAN5v" },
-        { label: "OpenAI", href: "https://lnkd.in/gTwXXdXa" },
-      ],
-    },
     {
       title: "KDIGO Guideline-Aware Clinical Graph",
       hackathon: "Rapid Prototype",

@@ -279,6 +279,166 @@ function Tags({ items }: { items: string[] }) {
   );
 }
 
+type ExperienceItem = (typeof siteContent.experience)[number];
+
+function ExperienceCard({
+  item,
+  isCurrent = false,
+}: {
+  item: ExperienceItem;
+  isCurrent?: boolean;
+}) {
+  const visibleHighlights = item.highlights.slice(0, 2);
+
+  return (
+    <article
+      className="rounded-lg border border-[#dce4dc] bg-white p-5 shadow-[0_18px_50px_rgba(23,25,20,0.055)] transition hover:border-[#c7d5c7] sm:p-6"
+      key={`${item.period}-${item.company}-${item.project}`}
+    >
+      <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start">
+        <div className="min-w-0">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+            <ExperienceLogo company={item.company} logo={item.logo} />
+            <div className="min-w-0">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <h3 className="text-xl font-semibold tracking-tight text-[#171914]">
+                  {item.role}
+                </h3>
+                {isCurrent ? (
+                  <span className="rounded-lg border border-[#b9d9c5] bg-[#eef8f1] px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-[#13795b]">
+                    Current
+                  </span>
+                ) : null}
+              </div>
+              <p className="mt-1 font-medium text-[#13795b]">{item.company}</p>
+              {item.details ? (
+                <p className="mt-1 text-sm leading-6 text-[#6a7367]">
+                  {item.details}
+                </p>
+              ) : null}
+            </div>
+          </div>
+          <p className="mt-4 leading-7 text-[#555d52]">{item.description}</p>
+          <ul className="mt-4 grid gap-2.5 xl:grid-cols-2">
+            {visibleHighlights.map((highlight) => (
+              <li
+                className="flex gap-3 text-sm leading-6 text-[#444c42]"
+                key={highlight}
+              >
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#16a46f]" />
+                <span>{highlight}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+          <div className="rounded-lg border border-[#dce4dc] bg-[#f7faf7] px-4 py-3">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-[#6a7367]">
+              Period
+            </p>
+            <p className="mt-1 font-mono text-sm font-semibold text-[#13795b]">
+              {item.period}
+            </p>
+          </div>
+          {item.project ? (
+            <div className="rounded-lg border border-[#dce4dc] bg-[#f7faf7] px-4 py-3">
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-[#6a7367]">
+                Initiative
+              </p>
+              <p className="mt-1 text-sm font-semibold leading-6 tracking-tight text-[#30362e]">
+                {item.project}
+              </p>
+            </div>
+          ) : null}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function DeloitteExperienceGroup({ items }: { items: ExperienceItem[] }) {
+  if (items.length === 0) {
+    return null;
+  }
+
+  const [primaryItem] = items;
+
+  return (
+    <article className="rounded-lg border border-[#c9d9c8] bg-white p-5 shadow-[0_18px_50px_rgba(23,25,20,0.055)] sm:p-6">
+      <div className="flex flex-col gap-4 border-b border-[#dce4dc] pb-5 sm:flex-row sm:items-start sm:justify-between">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+          <ExperienceLogo company={primaryItem.company} logo={primaryItem.logo} />
+          <div>
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-[#13795b]">
+              Consulting Client Work
+            </p>
+            <h3 className="mt-2 text-2xl font-semibold tracking-tight text-[#171914]">
+              Deloitte USI — AI & Data Engineering Analyst
+            </h3>
+            <p className="mt-2 leading-7 text-[#555d52]">
+              Delivered production data engineering, analytics, and ML work
+              across multiple client domains under one Deloitte role.
+            </p>
+          </div>
+        </div>
+        <div className="rounded-lg border border-[#dce4dc] bg-[#f7faf7] px-4 py-3 sm:min-w-44">
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-[#6a7367]">
+            Period
+          </p>
+          <p className="mt-1 font-mono text-sm font-semibold text-[#13795b]">
+            Sep 2021 – Jan 2024
+          </p>
+        </div>
+      </div>
+
+      <div className="mt-5 grid gap-4">
+        {items.map((item) => {
+          const client = item.details.replace(/^Client:\s*/, "");
+          const visibleHighlights = item.highlights.slice(0, 2);
+
+          return (
+            <div
+              className="grid gap-4 rounded-lg border border-[#dce4dc] bg-[#f7faf7] p-4 md:grid-cols-[12rem_minmax(0,1fr)]"
+              key={`${item.period}-${item.project}`}
+            >
+              <div>
+                <p className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-[#6a7367]">
+                  Client
+                </p>
+                <p className="mt-1 font-semibold tracking-tight text-[#171914]">
+                  {client}
+                </p>
+                <p className="mt-2 font-mono text-xs font-semibold text-[#13795b]">
+                  {item.period}
+                </p>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold tracking-tight text-[#171914]">
+                  {item.project}
+                </h4>
+                <p className="mt-2 leading-7 text-[#555d52]">
+                  {item.description}
+                </p>
+                <ul className="mt-3 grid gap-2 lg:grid-cols-2">
+                  {visibleHighlights.map((highlight) => (
+                    <li
+                      className="flex gap-3 text-sm leading-6 text-[#444c42]"
+                      key={highlight}
+                    >
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#16a46f]" />
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </article>
+  );
+}
+
 export default function Home() {
   const resumeCta = siteContent.ctaLinks.find((link) => link.icon === "resume");
   const socialLinks = siteContent.ctaLinks.filter(
@@ -288,6 +448,12 @@ export default function Home() {
     ["linkedin", "email"].includes(link.icon),
   );
   const experienceItems = siteContent.experience;
+  const deloitteItems = experienceItems.filter(
+    (item) => item.company === "Deloitte USI",
+  );
+  const nonDeloitteItems = experienceItems.filter(
+    (item) => item.company !== "Deloitte USI",
+  );
 
   return (
     <main className="min-h-screen overflow-hidden">
@@ -501,86 +667,20 @@ export default function Home() {
             description={siteContent.sections.experience.description}
           />
           <div className="grid gap-4">
-            {experienceItems.map((item, index) => {
-              const visibleHighlights = item.highlights.slice(0, 2);
-
-              return (
-                <article
-                  className="rounded-lg border border-[#dce4dc] bg-white p-5 shadow-[0_18px_50px_rgba(23,25,20,0.055)] transition hover:border-[#c7d5c7] sm:p-6"
-                  key={`${item.period}-${item.company}-${item.project}`}
-                >
-                  <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start">
-                    <div className="min-w-0">
-                      <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
-                        <ExperienceLogo
-                          company={item.company}
-                          logo={item.logo}
-                        />
-                        <div className="min-w-0">
-                          <div className="flex flex-wrap items-center gap-2.5">
-                            <h3 className="text-xl font-semibold tracking-tight text-[#171914]">
-                              {item.role}
-                            </h3>
-                            {index === 0 ? (
-                              <span className="rounded-lg border border-[#b9d9c5] bg-[#eef8f1] px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-[#13795b]">
-                                Current
-                              </span>
-                            ) : null}
-                            {item.company === "Deloitte USI" ? (
-                              <span className="rounded-lg border border-[#cfd8ce] bg-[#f2f6f2] px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-[#425043]">
-                                Deloitte path
-                              </span>
-                            ) : null}
-                          </div>
-                          <p className="mt-1 font-medium text-[#13795b]">
-                            {item.company}
-                          </p>
-                          {item.details ? (
-                            <p className="mt-1 text-sm leading-6 text-[#6a7367]">
-                              {item.details}
-                            </p>
-                          ) : null}
-                        </div>
-                      </div>
-                      <p className="mt-4 leading-7 text-[#555d52]">
-                        {item.description}
-                      </p>
-                      <ul className="mt-4 grid gap-2.5 xl:grid-cols-2">
-                        {visibleHighlights.map((highlight) => (
-                          <li
-                            className="flex gap-3 text-sm leading-6 text-[#444c42]"
-                            key={highlight}
-                          >
-                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#16a46f]" />
-                            <span>{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-                      <div className="rounded-lg border border-[#dce4dc] bg-[#f7faf7] px-4 py-3">
-                        <p className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-[#6a7367]">
-                          Period
-                        </p>
-                        <p className="mt-1 font-mono text-sm font-semibold text-[#13795b]">
-                          {item.period}
-                        </p>
-                      </div>
-                      {item.project ? (
-                        <div className="rounded-lg border border-[#dce4dc] bg-[#f7faf7] px-4 py-3">
-                          <p className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-[#6a7367]">
-                            Initiative
-                          </p>
-                          <p className="mt-1 text-sm font-semibold leading-6 tracking-tight text-[#30362e]">
-                            {item.project}
-                          </p>
-                        </div>
-                      ) : null}
-                    </div>
-                  </div>
-                </article>
-              );
-            })}
+            {nonDeloitteItems.slice(0, 2).map((item, index) => (
+              <ExperienceCard
+                isCurrent={index === 0}
+                item={item}
+                key={`${item.period}-${item.company}-${item.project}`}
+              />
+            ))}
+            <DeloitteExperienceGroup items={deloitteItems} />
+            {nonDeloitteItems.slice(2).map((item) => (
+              <ExperienceCard
+                item={item}
+                key={`${item.period}-${item.company}-${item.project}`}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -591,28 +691,43 @@ export default function Home() {
           description={siteContent.sections.projects.description}
         />
         <div className="grid gap-5 md:grid-cols-3">
-          {siteContent.projects.map((project) => (
-            <Card className="flex min-h-[320px] flex-col" key={project.title}>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-[#13795b]">
-                {project.type}
-              </p>
-              <h3 className="mt-3 text-xl font-semibold tracking-tight">
-                {project.title}
-              </h3>
-              <p className="mt-4 flex-1 leading-7 text-[#555d52]">
-                {project.description}
-              </p>
-              <div className="mt-5">
-                <Tags items={project.tags} />
-              </div>
-              <a
-                className="mt-6 text-sm font-semibold text-[#0f6b4f] hover:text-[#171914]"
-                href={project.link}
+          {siteContent.projects.map((project) => {
+            const isFeatured = "featured" in project && project.featured;
+
+            return (
+              <Card
+                className={`flex flex-col ${
+                  isFeatured
+                    ? "min-h-[280px] border-[#9fc8ac] bg-[#f4faf6] md:col-span-3"
+                    : "min-h-[320px]"
+                }`}
+                key={project.title}
               >
-                {siteContent.sections.projects.linkLabel}
-              </a>
-            </Card>
-          ))}
+                <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-[#13795b]">
+                  {project.type}
+                </p>
+                <h3
+                  className={`mt-3 font-semibold tracking-tight ${
+                    isFeatured ? "text-2xl sm:text-3xl" : "text-xl"
+                  }`}
+                >
+                  {project.title}
+                </h3>
+                <p className="mt-4 flex-1 leading-7 text-[#555d52]">
+                  {project.description}
+                </p>
+                <div className="mt-5">
+                  <Tags items={project.tags} />
+                </div>
+                <a
+                  className="mt-6 text-sm font-semibold text-[#0f6b4f] hover:text-[#171914]"
+                  href={project.link}
+                >
+                  {siteContent.sections.projects.linkLabel}
+                </a>
+              </Card>
+            );
+          })}
         </div>
       </section>
 
