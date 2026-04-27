@@ -120,14 +120,15 @@ export const siteContent = {
       company: "UMass BioNLP Lab",
       details: "Advisor: Prof. Hong Yu",
       period: "Sep 2025 – Jan 2026",
-      project: "Training-Free Multi-Agent Clinical Reasoning",
+      project: "Agentic Clinical NLP System for Alcohol-Use Classification",
       logo: "/logos/UMass.png",
       description:
-        "Built a training-free multi-agent framework for SDOH prediction from clinical text, focused on inference-time refinement, reasoning stability, and limited-supervision settings.",
+        "Developed a training-free GRPO-style agentic framework for clinical NLP, focused on alcohol-use status classification from patient notes using reward-guided self-reflection and experience memory — without model fine-tuning.",
       highlights: [
-        "Designed a multi-agent pipeline that ranks candidate outputs for correctness and consistency without fine-tuning.",
-        "Implemented a lightweight memory module to reuse high-reward reasoning patterns across predictions.",
-        "Evaluated trade-offs across accuracy, macro-F1, robustness, and reasoning stability on alcohol-use classification from clinical notes.",
+        "Built a training-free GRPO-style pipeline that generates multiple LLM reasoning candidates per clinical note, scores them with label-based rewards (Present / Past / None), and improves classification behavior through reflection without parameter updates.",
+        "Implemented async LLM rollout pipelines that generate, score, and persist candidate responses per sample, with reward tracking and JSONL experiment logging for reproducibility.",
+        "Designed a lightweight experience-memory module using sentence-transformer embeddings to retrieve prior high-reward reasoning traces and surface them in future prompts.",
+        "Added controller logic to monitor reward trends across batches, refresh stale experiences, and adjust generation temperature — enabling adaptive inference-time behavior.",
       ],
     },
     {
