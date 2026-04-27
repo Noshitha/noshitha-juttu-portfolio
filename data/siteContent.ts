@@ -1,17 +1,17 @@
 export const siteContent = {
   name: "Noshitha Juttu",
-  role: "AI Systems, Retrieval, and Data Infrastructure",
+  role: "AI & Data Systems Engineer",
   shortRole:
-    "Former Deloitte data engineer and MSCS candidate focused on AI systems",
+    "AI & data systems engineer building applied AI products",
   location: "San Francisco, California",
   locationShort: "California",
   availabilityShort: "Open to AI, data, and software roles",
   availability:
-    "Open to AI systems, applied AI, and data platform roles",
+    "Open to Applied AI, LLM Systems, AI Products, Data Platform, ML/MLOps, and Forward Deployed AI roles.",
   tagline:
-    "Former Deloitte data engineer and MSCS candidate building AI systems, LLM infrastructure, retrieval, and trustworthy applied AI products.",
+    "Building applied AI products, LLM workflows, and production-grade data platforms across retrieval, inference optimization, and cloud data infrastructure.",
   summary:
-    "I bring production data engineering experience from Deloitte USI into AI systems work at UMass Amherst, with current focus on LLM infrastructure, retrieval, verification, and inference optimization.",
+    "I build at the intersection of AI systems, data infrastructure, and product execution. My background spans production data engineering at Deloitte, applied NLP and on-device model optimization with Adobe x UMass, and agentic AI research at UMass Amherst. I'm focused on turning strong data foundations into reliable AI products - from RAG and multi-agent workflows to scalable pipelines, model evaluation, and inference-ready systems.",
   heroImage:
     "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1800&q=80",
   profileImage: "/Noshitha_Profile_Picture.jpeg",
@@ -103,11 +103,10 @@ export const siteContent = {
   },
   about: {
     eyebrow: "About",
-    title: "Former Deloitte data engineer, MSCS, AI systems builder.",
+    title: "Production data foundations. Applied AI systems. Product-minded execution.",
     body: [
-      "I am a former Deloitte USI data engineer and M.S. Computer Science candidate at UMass Amherst, now focused on AI systems, LLM infrastructure, retrieval, and trustworthy applied AI.",
-      "At Deloitte, I spent nearly 2.5 years building production data platforms, pipelines, and analytics systems across utility, healthcare, and pricing domains, with that work recognized through three Deloitte awards.",
-      "At UMass Amherst and Adobe, I have worked on on-device model optimization, agentic systems, clinical reasoning, and rapid AI product builds through Bay Area hackathons and community events.",
+      "My work started in data science, where I learned how clean data, simple statistical reasoning, and clear interpretation can influence real decisions. I later moved into data and AI engineering at Deloitte, spending nearly 2.5 years building production pipelines, cloud data platforms, and analytics systems across healthcare, energy, and public utility clients. That experience taught me how to integrate messy systems, optimize workflows, and deliver under real business constraints.",
+      "At UMass Amherst, I deepened my focus on AI, NLP, and systems research. I have worked on on-device NLP optimization with Adobe x UMass, multi-agent clinical reasoning at the UMass BioNLP Lab, and rapid AI product prototypes across legal AI, retrieval, graph-based reasoning, and edge/cloud inference. Across these projects, my focus is consistent: build AI systems that are measurable, reliable, and useful beyond the demo.",
     ],
     stats: [
       { label: "Experience", value: "3+ Years" },
