@@ -111,7 +111,8 @@ export const siteContent = {
     stats: [
       { label: "Experience", value: "3+ Years" },
       { label: "Research", value: "2 Publications + 1 Under Review" },
-      { label: "Background", value: "Ex-Deloitte" },
+      { label: "Background", value: "Deloitte · Adobe Research" },
+      { label: "Rapid Prototypes", value: "3 Builds · Each < 1 Day" },
     ],
   },
   experience: [
