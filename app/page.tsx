@@ -1,5 +1,6 @@
 import { siteContent } from "../data/siteContent";
 import { ExperienceLogo } from "./ExperienceLogo";
+import { FlipExperienceCard } from "./FlipExperienceCard";
 
 const sectionClass =
   "mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 py-20 sm:px-8 lg:px-10";
@@ -281,6 +282,23 @@ function Tags({ items }: { items: string[] }) {
 
 type ExperienceItem = (typeof siteContent.experience)[number];
 
+function BoldText({ text }: { text: string }) {
+  const parts = text.split(/\*\*(.*?)\*\*/g);
+  return (
+    <>
+      {parts.map((part, i) =>
+        i % 2 === 1 ? (
+          <strong key={i} className="font-semibold text-[#171914]">
+            {part}
+          </strong>
+        ) : (
+          part
+        ),
+      )}
+    </>
+  );
+}
+
 function ExperienceCard({
   item,
   isCurrent = false,
@@ -426,7 +444,7 @@ function DeloitteExperienceGroup({ items }: { items: ExperienceItem[] }) {
                       key={highlight}
                     >
                       <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#16a46f]" />
-                      <span>{highlight}</span>
+                      <span><BoldText text={highlight} /></span>
                     </li>
                   ))}
                 </ul>
@@ -668,7 +686,7 @@ export default function Home() {
           />
           <div className="grid gap-4">
             {nonDeloitteItems.slice(0, 2).map((item, index) => (
-              <ExperienceCard
+              <FlipExperienceCard
                 isCurrent={index === 0}
                 item={item}
                 key={`${item.period}-${item.company}-${item.project}`}
@@ -676,7 +694,7 @@ export default function Home() {
             ))}
             <DeloitteExperienceGroup items={deloitteItems} />
             {nonDeloitteItems.slice(2).map((item) => (
-              <ExperienceCard
+              <FlipExperienceCard
                 item={item}
                 key={`${item.period}-${item.company}-${item.project}`}
               />

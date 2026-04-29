@@ -121,6 +121,9 @@ export const siteContent = {
       details: "Advisor: Prof. Hong Yu",
       period: "Sep 2025 – Jan 2026",
       project: "Agentic Clinical NLP System for Alcohol-Use Classification",
+      summary:
+        "Built a Reward-Guided Multi-Agentic Clinical NLP System for Alcohol-Use Classification — training-free, inference-time only.",
+      tags: ["RLHF / Reward Signals", "Experience Memory RAG", "Agentic AI", "Clinical NLP", "AsyncIO", "SLURM"],
       logo: "/logos/UMass.png",
       description:
         "Developed a training-free GRPO-style agentic framework for clinical NLP, focused on alcohol-use status classification from patient notes using reward-guided self-reflection and experience memory — without model fine-tuning.",
@@ -136,76 +139,78 @@ export const siteContent = {
       company: "Adobe x UMass",
       details: "Advisors: Prof. Andrew McCallum & Franck Dernoncourt",
       period: "Jan 2025 – May 2025",
-      project: "On-Device MarianMT Inference Optimization",
+      project: "On-Device NLP Optimization for Neural Machine Translation",
+      summary:
+        "Engineered a full on-device NLP inference pipeline — PyTorch → ONNX → CoreML → quantized deployment with BLEU-based quality tracking.",
+      tags: ["ONNX Runtime", "CoreML", "PTQ / QAT", "Edge Inference", "MarianMT", "BLEU Evaluation"],
       logo: "/logos/Adobe.jpg",
       description:
-        "Engineered an on-device inference optimization pipeline for MarianMT-based neural machine translation, balancing model size, decoding speed, and quality for edge deployment.",
+        "Built a multi-stage deployment pipeline to take MarianMT from research-grade PyTorch to edge-ready ONNX and CoreML artifacts — covering export, inference, compression, and quality benchmarking.",
       highlights: [
-        "Built a PyTorch to CoreML / ONNX Runtime workflow enabling INT8 and FP16 export for cross-platform inference.",
-        "Reduced model size from 75M to 23M parameters and improved decoding throughput by about 20%.",
-        "Evaluated accuracy-latency-size trade-offs using BLEU, TER, chrF, METEOR, COMET, BERTScore, and BLEURT.",
+        "Implemented encoder-decoder ONNX export and monolithic ONNX workflows for MarianMT, handling sequence-to-sequence dynamic axes, greedy decoding paths, and ONNX Runtime inference validation.",
+        "Explored CoreML conversion paths for Apple/mobile deployment alongside vocabulary-reduced ONNX variants, reducing model footprint while maintaining runtime compatibility.",
+        "Applied PTQ and QAT quantization strategies to compressed ONNX models, evaluating size-quality tradeoffs across baseline, exported, and quantized variants.",
+        "Built BLEU-based evaluation pipelines to systematically benchmark translation quality across PyTorch, ONNX, vocabulary-reduced, and quantized model stages — informing deployment tradeoff decisions.",
       ],
     },
     {
       role: "AI & Data Engineering Analyst",
       company: "Deloitte USI",
-      details: "Client: Public Utility",
+      details: "Client: Power & Utilities — Public Water Utility",
       period: "Nov 2022 – Jan 2024",
-      project: "Utility Customer Data Platform",
+      project: "Customer Utility Consumption Web Application",
       logo: "/logos/Deloitte.png?v=20260418",
       description:
-        "Architected and maintained secure ingestion and transformation pipelines for utility billing, consumption, and daily customer activity data powering customer-facing digital experiences.",
+        "Architected and maintained secure ingestion and transformation pipelines for utility billing, consumption, and daily customer activity data powering customer-facing digital experiences at scale.",
       highlights: [
-        "Supported data used by a customer base of 15M+ users across utility-service experiences and leadership-facing dashboards.",
-        "Developed a custom Python-based NiFi processor that reduced batch load times from 3 hours to 30 minutes.",
-        "Built workflows that integrated high-volume API and enterprise source data into AWS-based lakehouse layers for downstream analytics and application use.",
-        "Improved governance and reliability through OAuth-enabled ingestion, Airflow orchestration, schema evolution handling, and monitoring across Glue, Athena, and Redshift.",
+        "Delivered 20+ end-to-end data pipelines within a 2-month window, earning a **Client Favourite Award** for rapid ownership, stakeholder alignment, and on-time delivery.",
+        "Supported data powering customer-facing utility experiences for a base of **15M+ users**, including leadership-facing dashboards and operational reporting.",
+        "Developed a custom Python-based NiFi processor that cut batch load times from 3 hours to 30 minutes — directly improving data availability SLAs for client teams.",
+        "Improved platform reliability and governance through OAuth-enabled ingestion, Airflow orchestration, schema evolution handling, and monitoring across AWS Glue, Athena, and Redshift.",
       ],
     },
     {
       role: "AI & Data Engineering Analyst",
       company: "Deloitte USI",
-      details: "Client: Fortune 100 Energy Utility",
+      details: "Client: Energy, Resources & Industries — Fortune 100 Energy Utility",
       period: "Apr 2022 – Nov 2022",
-      project: "Enterprise ETL Migration to Databricks",
+      project: "Data Platform Migration",
       logo: "/logos/Deloitte.png?v=20260418",
       description:
-        "Led migration of legacy Informatica BDM workflows to Databricks-based PySpark pipelines for a high-scale enterprise utility environment.",
+        "Led enterprise-scale migration of legacy Informatica BDM workflows to a modern Databricks and PySpark stack, delivering measurable performance gains and earning recognition for client impact.",
       highlights: [
-        "Reduced batch runtimes by 25-30% through Databricks migration, incremental processing, and better transformation design.",
-        "Received a Spot Award for ownership and impact during the migration effort.",
-        "Owned raw-to-formatted pipeline development for a migration program serving a growing downstream user base.",
-        "Worked in a high-oncall production environment, troubleshooting failures and improving reliability during migration cutovers.",
+        "Reduced batch pipeline runtimes by 25–30% through Databricks migration, incremental processing design, and optimised transformation logic — directly improving downstream SLA compliance for the client.",
+        "Received a **Spot Award** for ownership, delivery pace, and client-facing impact during a high-stakes migration program.",
+        "Owned raw-to-formatted pipeline development across a multi-team program, maintaining reliability in a high-oncall production environment through migration cutovers.",
       ],
     },
     {
       role: "AI & Data Engineering Analyst",
       company: "Deloitte USI",
-      details: "Client: Healthcare Provider",
+      details: "Client: Life Sciences & Healthcare",
       period: "Nov 2021 – Apr 2022",
-      project: "Healthcare ELT & Patient Risk Analytics",
+      project: "Healthcare ERP Source Automation to Cloud",
       logo: "/logos/Deloitte.png?v=20260418",
       description:
-        "Designed and automated ELT pipelines across multi-source healthcare systems to centralize patient and operational data for downstream analytics.",
+        "Automated ELT pipelines across multi-source healthcare ERP systems to centralise patient and operational data in the cloud, enabling downstream clinical analytics and risk identification.",
       highlights: [
-        "Built a 3-layer architecture from raw to transformed to reporting with schema validation, deduplication, and standardized transformations.",
-        "Supported analytics workflows focused on identifying high-priority and critical-care patient signals from consolidated records.",
-        "Improved trust in downstream reporting by reducing ingestion and transformation errors through stronger validation.",
+        "Built a 3-layer medallion architecture (raw → transformed → reporting) with schema validation, deduplication, and standardised transformations — reducing ingestion errors and improving client reporting trust.",
+        "Supported clinical analytics workflows focused on surfacing high-priority and critical-care patient signals from consolidated records across source systems.",
+        "Delivered end-to-end pipeline automation directly in collaboration with client stakeholders, translating healthcare data requirements into reliable cloud-hosted ELT workflows.",
       ],
     },
     {
       role: "AI & Data Engineering Analyst",
       company: "Deloitte USI",
-      details: "Client: Used Car Dealers",
+      details: "Client: Automotive — Used Car Dealers",
       period: "Sep 2021 – Nov 2021",
-      project: "Used Car Pricing Intelligence",
+      project: "Used Car Market Pricing Intelligence",
       logo: "/logos/Deloitte.png?v=20260418",
       description:
-        "Analyzed used-car market data to identify price-driving factors across vehicle attributes, market trends, and resale patterns.",
+        "Analysed used-car market data to identify price-driving factors across vehicle attributes, market trends, and resale patterns, delivering pricing intelligence to client stakeholders.",
       highlights: [
-        "Built predictive modeling workflows to estimate used-car pricing and support pricing-related recommendations.",
-        "Improved interpretability by surfacing the most important feature drivers behind pricing outputs.",
-        "Positioned the system as a decision-support tool for competitive pricing and market-entry analysis.",
+        "Built predictive modelling workflows to estimate used-car pricing, surfacing the most important feature drivers to support client-facing pricing recommendations and market-entry decisions.",
+        "Improved model interpretability to give client teams actionable signals — translating ML outputs into a decision-support tool for competitive pricing strategy.",
       ],
     },
     {
@@ -226,13 +231,20 @@ export const siteContent = {
   ],
   projects: [
     {
-      title: "BriefCheck",
-      type: "Flagship Project · Legal AI Verification",
-      featured: true,
+      title: "SaulLM-7B-AnomalyDetector",
+      type: "Model Card · Legal NLP · LoRA Fine-Tune",
       description:
-        "Built a verification layer for AI-drafted legal briefs that checks whether cited cases are real, still good law, support the argument, and fit the right jurisdiction. The project combines retrieval, LLM orchestration, domain reasoning, and product judgment around trust and practical AI safety.",
-      tags: ["Legal AI", "Verification", "Retrieval", "LLM Orchestration", "MCP"],
-      link: "https://lnkd.in/gQusAN5v",
+        "LoRA adapter on SaulLM-7B for unfair clause detection in Terms of Service — 4-bit QLoRA, ~0.18% of parameters trained.",
+      tags: ["LoRA", "SaulLM-7B", "4-bit QLoRA", "Legal NLP", "PEFT", "HuggingFace"],
+      link: "https://huggingface.co/Noshitha98/SaulLM-7B-AnomalyDetector",
+    },
+    {
+      title: "TinyLlama-ToS-Finetuned",
+      type: "Model Card · Legal NLP · LoRA Fine-Tune",
+      description:
+        "LoRA-finetuned TinyLlama-1.1B for Fair/Unfair clause classification in ToS agreements — only ~0.1% of parameters trained. Tied to arXiv:2510.22531.",
+      tags: ["LoRA", "TinyLlama-1.1B", "PEFT", "Legal NLP", "Classification", "HuggingFace"],
+      link: "https://huggingface.co/Noshitha98/TinyLlama-ToS-Finetuned",
     },
     {
       title: "RAG-based Research Copilot",
@@ -266,13 +278,24 @@ export const siteContent = {
   ],
   hackathons: [
     {
+      title: "BriefCheck",
+      hackathon: "Stanford CodeX × LLM Law Hackathon",
+      theme: "Legal AI Verification & Trust Layer",
+      buildTime: "< 18 hours",
+      type: "Flagship Build · Legal AI",
+      description:
+        "Verification layer for AI-drafted legal briefs — checks if cited cases are real, still good law, on-point, and jurisdiction-matched. Shipped end-to-end in under 18 hours.",
+      tags: ["Legal AI", "Verification", "Retrieval", "LLM Orchestration", "MCP"],
+      link: "https://lnkd.in/gQusAN5v",
+    },
+    {
       title: "KDIGO Guideline-Aware Clinical Graph",
-      hackathon: "Rapid Prototype",
+      hackathon: "Amazon AWS Lounge Hackathon",
       theme: "Clinical Decision Support with Graph + Agents",
-      buildTime: "12 hours",
+      buildTime: "In Progress",
       type: "Prototype · Graph + Agents",
       description:
-        "Designed a graph-centered prototype using Neo4j and agent orchestration to reason over patient records, guideline rules, contraindications, and treatment thresholds.",
+        "Graph-based clinical decision support prototype that reasons over patient records, KDIGO guideline rules, contraindications, and treatment thresholds using Neo4j and agent orchestration.",
       tags: ["Neo4j", "Agents", "Clinical AI", "Prototype"],
       link: "https://github.com/Noshitha",
     },
@@ -283,7 +306,7 @@ export const siteContent = {
       buildTime: "Hackathon Build",
       type: "Hackathon · Inference Routing",
       description:
-        "Built a hybrid edge-cloud routing system for tool-calling AI that decides when a small language model (FunctionGemma-270M) is enough and when to escalate to Gemini for stronger reasoning. The project focused on practical inference trade-offs across speed, accuracy, on-device execution, and recovery behavior, showing how smaller models and cloud models can work together instead of competing.",
+        "Hybrid routing system that decides when FunctionGemma-270M is sufficient for tool-calling and when to escalate to Gemini — optimising for speed, accuracy, and on-device execution trade-offs.",
       tags: ["Edge AI", "Gemini", "Tool Routing", "Systems"],
       links: [
         {
