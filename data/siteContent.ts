@@ -290,10 +290,10 @@ export const siteContent = {
       link: "https://lnkd.in/gQusAN5v",
     },
     {
-      title: "KDIGO Guideline-Aware Clinical Graph",
+      title: "Graph-Native CKD Clinical Reasoning Pipeline",
       hackathon: "Amazon AWS Lounge Hackathon",
       theme: "Clinical Decision Support with Graph + Agents",
-      buildTime: "In Progress",
+      buildTime: "<8 hrs",
       type: "Prototype · Graph + Agents",
       description:
         "Graph-based clinical decision support prototype built with Neo4j and RocketRide that structures patient records, KDIGO guideline rules, contraindications, and treatment thresholds into a queryable knowledge graph for agent-driven reasoning.",
