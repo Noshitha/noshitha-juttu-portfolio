@@ -296,9 +296,9 @@ export const siteContent = {
       buildTime: "In Progress",
       type: "Prototype · Graph + Agents",
       description:
-        "Graph-based clinical decision support prototype that reasons over patient records, KDIGO guideline rules, contraindications, and treatment thresholds using Neo4j and agent orchestration.",
+        "Graph-based clinical decision support prototype built with Neo4j and RocketRide that structures patient records, KDIGO guideline rules, contraindications, and treatment thresholds into a queryable knowledge graph for agent-driven reasoning.",
       tags: ["Neo4j", "Agents", "Clinical AI", "Prototype"],
-      link: "https://github.com/Noshitha",
+      link: "https://github.com/Noshitha/neo4j-rocketride-clinical-graph-demo",
     },
     {
       title: "Hybrid Edge-Cloud Routing for Tool-Calling AI",
