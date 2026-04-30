@@ -280,7 +280,7 @@ export const siteContent = {
   hackathons: [
     {
       title: "BriefCheck",
-      hackathon: "Stanford CodeX × LLM Law Hackathon",
+      hackathon: "Stanford CodeX Law Hackathon",
       theme: "Legal AI Verification & Trust Layer",
       buildTime: "< 18 hours",
       type: "Flagship Build · Legal AI",
@@ -291,7 +291,7 @@ export const siteContent = {
     },
     {
       title: "Graph-Native CKD Clinical Reasoning Pipeline",
-      hackathon: "Amazon AWS Lounge Hackathon",
+      hackathon: "AWS Lounge Hackathon",
       theme: "Clinical Decision Support with Graph + Agents",
       buildTime: "<8 hrs",
       type: "Prototype · Graph + Agents",
@@ -302,7 +302,7 @@ export const siteContent = {
     },
     {
       title: "Hybrid Edge-Cloud Routing for Tool-Calling AI",
-      hackathon: "Google DeepMind × Cactus (YC S25) AI Hackathon",
+      hackathon: "Google DeepMind × Cactus AI Hackathon",
       theme: "Hybrid inference, tool routing, and edge AI systems",
       buildTime: "Hackathon Build",
       type: "Hackathon · Inference Routing",
