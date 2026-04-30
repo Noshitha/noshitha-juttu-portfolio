@@ -291,7 +291,7 @@ export const siteContent = {
     },
     {
       title: "Graph-Native CKD Clinical Reasoning Pipeline",
-      hackathon: "AWS Lounge Hackathon",
+      hackathon: "Hack With Bay2.0",
       theme: "Clinical Decision Support with Graph + Agents",
       buildTime: "<8 hrs",
       type: "Prototype · Graph + Agents",
