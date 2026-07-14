@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SnowConvert AI — Take-Home Submission | Noshitha Juttu</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sf-blue: #29B5E8;
+    --sf-dark: #0A1628;
+    --sf-mid: #1B3A5C;
+    --sf-light: #EAF7FD;
+    --sf-green: #00C58E;
+    --sf-amber: #F59E0B;
+    --sf-gray: #6B7B8D;
+    --sf-rule: #D0EAF5;
+    --white: #ffffff;
+    --ink: #1a2433;
+    --mono: 'Courier New', Courier, monospace;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #F5F8FB;
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ── PAGE SHELL ── */
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--white);
+    border-left: 1px solid var(--sf-rule);
+    border-right: 1px solid var(--sf-rule);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--sf-dark);
+    padding: 28px 40px 22px;
+    border-bottom: 3px solid var(--sf-blue);
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .header h1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.01em;
+  }
+  .header .role {
+    font-size: 12px;
+    color: var(--sf-blue);
+    font-weight: 500;
+    margin-top: 3px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .header-meta {
+    text-align: right;
+    font-size: 11.5px;
+    color: #7EA8C4;
+    line-height: 1.7;
+  }
+  .header-meta strong { color: var(--white); }
+
+  /* ── THESIS BAND ── */
+  .thesis-band {
+    background: var(--sf-light);
+    border-left: 4px solid var(--sf-blue);
+    padding: 14px 40px;
+    font-size: 13px;
+    color: var(--sf-mid);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .content { padding: 32px 40px 48px; }
+
+  /* ── SECTION HEADERS ── */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sf-blue);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--sf-rule);
+  }
+
+  /* ── STATS ROW ── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .stat-box {
+    background: var(--sf-light);
+    border: 1px solid var(--sf-rule);
+    border-top: 3px solid var(--sf-blue);
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .stat-box .num {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--sf-dark);
+    line-height: 1;
+  }
+  .stat-box .label {
+    font-size: 10.5px;
+    color: var(--sf-gray);
+    margin-top: 4px;
+    line-height: 1.35;
+  }
+
+  /* ── PROC CARDS ── */
+  .proc-card {
+    border: 1px solid var(--sf-rule);
+    border-left: 4px solid var(--sf-blue);
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .proc-card-header {
+    background: var(--sf-dark);
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .proc-card-header .proc-name {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--sf-blue);
+    font-weight: 600;
+  }
+  .proc-card-header .proc-desc {
+    font-size: 11px;
+    color: #7EA8C4;
+    margin-top: 2px;
+  }
+  .badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+  }
+  .badge-success { background: var(--sf-green); color: white; }
+  .badge-challenge { background: var(--sf-amber); color: var(--sf-dark); }
+
+  .proc-body { padding: 16px 18px; }
+
+  .migration-challenges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .chip {
+    font-size: 10.5px;
+    padding: 3px 9px;
+    background: #FEF3C7;
+    color: #92400E;
+    border: 1px solid #FDE68A;
+    font-family: var(--mono);
+  }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .detail-block { margin-bottom: 10px; }
+  .detail-block .dl { font-size: 10.5px; font-weight: 700; color: var(--sf-blue); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 3px; }
+  .detail-block p { font-size: 12.5px; color: var(--ink); line-height: 1.55; }
+
+  .outcome-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--sf-rule);
+  }
+  .outcome-chip {
+    font-size: 11px;
+    padding: 4px 11px;
+    background: #ECFDF5;
+    color: #065F46;
+    border: 1px solid #A7F3D0;
+    font-family: var(--mono);
+  }
+
+  /* ── VALIDATION FRAMEWORK ── */
+  .validation-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .val-layer {
+    border: 1px solid var(--sf-rule);
+    padding: 14px 16px;
+  }
+  .val-layer .layer-num {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--sf-rule);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .val-layer .layer-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--sf-dark);
+    margin-bottom: 6px;
+  }
+  .val-layer ul {
+    list-style: none;
+    padding: 0;
+  }
+  .val-layer ul li {
+    font-size: 11.5px;
+    color: var(--sf-gray);
+    padding: 2px 0;
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+  }
+  .val-layer ul li::before {
+    content: '→';
+    color: var(--sf-blue);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── AI USAGE ── */
+  .ai-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    margin-bottom: 16px;
+  }
+  .ai-table th {
+    background: var(--sf-dark);
+    color: var(--sf-blue);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 9px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ai-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--sf-rule);
+    vertical-align: top;
+  }
+  .ai-table tr:nth-child(even) td { background: var(--sf-light); }
+  .ai-table .good { color: #065F46; font-weight: 600; }
+  .ai-table .limited { color: #92400E; font-weight: 600; }
+
+  /* ── ISSUES SECTION ── */
+  .issues-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 16px;
+  }
+  .issues-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--sf-rule);
+    font-size: 12.5px;
+  }
+  .issues-list li .tag {
+    font-size: 9.5px;
+    font-weight: 700;
+    padding: 2px 7px;
+    background: var(--sf-light);
+    color: var(--sf-mid);
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+    border: 1px solid var(--sf-rule);
+    margin-top: 1px;
+  }
+
+  /* ── OUTCOME BANNER ── */
+  .outcome-banner {
+    background: var(--sf-dark);
+    border-top: 3px solid var(--sf-green);
+    padding: 20px 40px;
+    margin: 0 -40px -48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .outcome-banner .headline {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .outcome-banner .sub {
+    font-size: 11.5px;
+    color: #7EA8C4;
+    margin-top: 3px;
+  }
+  .outcome-procs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .proc-badge {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    padding: 4px 10px;
+    background: rgba(41,181,232,0.15);
+    border: 1px solid rgba(41,181,232,0.35);
+    color: var(--sf-blue);
+  }
+
+  /* ── SPACING ── */
+  .mb8 { margin-bottom: 8px; }
+  .mb16 { margin-bottom: 16px; }
+  .mb24 { margin-bottom: 24px; }
+  .mb28 { margin-bottom: 28px; }
+
+  @media (max-width: 640px) {
+    .header, .content, .outcome-banner { padding-left: 20px; padding-right: 20px; }
+    .thesis-band { padding-left: 20px; padding-right: 20px; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; }
+    .validation-grid { grid-template-columns: 1fr; }
+    .outcome-banner { margin: 0 -20px -48px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <h1>Noshitha Padma Pratyusha Juttu</h1>
+        <div class="role">SnowConvert AI — Software Engineering Take-Home</div>
+      </div>
+      <div class="header-meta">
+        <div><strong>Submitted:</strong> April 19, 2026</div>
+        <div><strong>Environment:</strong> TAKEHOME_FINANCE / PLANNING schema</div>
+        <div><strong>Warehouse:</strong> TAKEHOME_WH</div>
+        <div><strong>Procedures completed:</strong> 3 of 6</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THESIS -->
+  <div class="thesis-band">
+    I treated this migration as a correctness problem, not a syntax problem. SnowConvert AI accelerated discovery and initial scaffolding; manual refactoring preserved business intent where SQL Server-specific constructs had no direct Snowflake equivalent; and a four-layer validation framework distinguished compile success from actual behavioral correctness.
+  </div>
+
+  <div class="content">
+
+    <!-- STATS -->
+    <div class="section-label">At a glance</div>
+    <div class="stats-row mb28">
+      <div class="stat-box">
+        <div class="num">3</div>
+        <div class="label">Procedures migrated &amp; validated</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">769</div>
+        <div class="label">Lines of Snowflake-native SQL written</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">12</div>
+        <div class="label">SQL Server constructs manually refactored</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">4</div>
+        <div class="label">Validation layers per procedure</div>
+      </div>
+    </div>
+
+    <!-- PROCEDURES -->
+    <div class="section-label mb8">Migrated procedures</div>
+
+    <!-- PROC 1 -->
+    <div class="proc-card mb16">
+      <div class="proc-card-header">
+        <div>
+          <div class="proc-name">Planning.usp_ProcessBudgetConsolidation</div>
+          <div class="proc-desc">Hierarchy rollup consolidation across cost centers, GL accounts, and fiscal periods</div>
+        </div>
+        <span class="badge badge-success">✓ SUCCESS</span>
+      </div>
+      <div class="proc-body">
+        <div class="detail-block mb8">
+          <div class="dl">SQL Server constructs requiring manual refactoring</div>
+        </div>
+        <div class="migration-challenges">
+          <span class="chip">CURSOR (FAST_FORWARD)</span>
+          <span class="chip">Table variables w/ indexes</span>
+          <span class="chip">CROSS APPLY + TVF</span>
+          <span class="chip">OUTPUT INTO</span>
+          <span class="chip">MERGE w/ OUTPUT clause</span>
+          <span class="chip">XML parameter parsing</span>
+          <span class="chip">SCOPE_IDENTITY()</span>
+          <span class="chip">@@TRANCOUNT nesting</span>
+          <span class="chip">TRY-CATCH / RAISERROR</span>
+          <span class="chip">Dynamic SQL sp_executesql</span>
+          <span class="chip">Named SAVEPOINTs</span>
+          <span class="chip">SET XACT_ABORT</span>
+        </div>
+        <div class="two-col">
+          <div>
+            <div class="detail-block">
+              <div class="dl">Snowflake approach</div>
+              <p>Replaced cursor-driven cost center traversal with a recursive CTE hierarchy expansion. XML parameter parsing replaced with <code>VARIANT</code> + <code>TRY_TO_NUMBER / TRY_TO_BOOLEAN</code>. <code>OUTPUT INTO</code> replaced with <code>RESULT_SCAN(LAST_QUERY_ID())</code>. Exception handling via Snowflake <code>EXCEPTION WHEN</code> blocks. Transaction semantics simplified to Snowflake's single-level model.</p>
+            </div>
+          </div>
+          <div>
+            <div class="detail-block">
+              <div class="dl">Validation outcome</div>
+              <p>Procedure executed successfully in 6.0s. Created a new consolidated budget header, inserted <strong>51 consolidated line items</strong>, verified rollup of leaf-level amounts into parent and root cost centers at the (CostCenterID, GLAccountID, FiscalPeriodID) grain. No duplicate rows, all referential integrity checks passed.</p>
+            </div>
+          </div>
+        </div>
+        <div class="outcome-row">
+          <span class="outcome-chip">target_budget_header_id: created</span>
+          <span class="outcome-chip">rows_processed: 51</span>
+          <span class="outcome-chip">status: SUCCESS</span>
+          <span class="outcome-chip">hierarchy rollup: verified</span>
+          <span class="outcome-chip">referential integrity: passed</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROC 2 -->
+    <div class="proc-card mb16">
+      <div class="proc-card-header">
+        <div>
+          <div class="proc-name">Planning.usp_ReconcileIntercompanyBalances</div>
+          <div class="proc-desc">Intercompany pair matching with tolerance-based reconciliation and variance reporting</div>
+        </div>
+        <span class="badge badge-success">✓ SUCCESS</span>
+      </div>
+      <div class="proc-body">
+        <div class="detail-block mb8">
+          <div class="dl">SQL Server constructs requiring manual refactoring</div>
+        </div>
+        <div class="migration-challenges">
+          <span class="chip">Table-valued parameters</span>
+          <span class="chip">Locking primitives (UPDLOCK)</span>
+          <span class="chip">Cursor-driven pair matching</span>
+          <span class="chip">TRY-CATCH / THROW</span>
+          <span class="chip">OUTPUT clause on UPDATE</span>
+          <span class="chip">@@ROWCOUNT checks</span>
+        </div>
+        <div class="two-col">
+          <div>
+            <div class="detail-block">
+              <div class="dl">Snowflake approach</div>
+              <p>Table-valued parameters replaced with temp tables (<code>T_ENTITYLIST</code>, <code>T_INTERCOMPANY_PAIRS</code>) seeded at procedure start. Locking hints removed — Snowflake's MVCC model handles isolation. Pair matching redesigned as a set-based CTE instead of cursor-driven row-by-row logic. Variance aggregation via window functions.</p>
+            </div>
+          </div>
+          <div>
+            <div class="detail-block">
+              <div class="dl">Validation outcome</div>
+              <p>Procedure executed successfully in 5.0s on a controlled +100,000 / -100,000 offsetting test case. Identified <strong>2 intercompany pairs</strong>, marked both reconciled, produced <strong>zero unreconciled balances</strong> and zero total variance. Reconciliation report returned as VARIANT with full pair-level detail.</p>
+            </div>
+          </div>
+        </div>
+        <div class="outcome-row">
+          <span class="outcome-chip">TotalPairs: 2</span>
+          <span class="outcome-chip">Reconciled: 2</span>
+          <span class="outcome-chip">Unreconciled: 0</span>
+          <span class="outcome-chip">TotalVariance: 0</span>
+          <span class="outcome-chip">status: SUCCESS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROC 3 -->
+    <div class="proc-card mb28">
+      <div class="proc-card-header">
+        <div>
+          <div class="proc-name">Planning.usp_ExecuteCostAllocation</div>
+          <div class="proc-desc">Rule-based cost allocation with dry-run mode, dependency sequencing, and AllocationSourceLineID lineage</div>
+        </div>
+        <span class="badge badge-success">✓ SUCCESS</span>
+      </div>
+      <div class="proc-body">
+        <div class="detail-block mb8">
+          <div class="dl">SQL Server constructs requiring manual refactoring</div>
+        </div>
+        <div class="migration-challenges">
+          <span class="chip">WHILE loop w/ cursor</span>
+          <span class="chip">Table-valued parameters</span>
+          <span class="chip">OUTPUT INTO for lineage</span>
+          <span class="chip">WAITFOR DELAY throttle</span>
+          <span class="chip">sp_getapplock concurrency</span>
+          <span class="chip">TRY-CATCH / THROW</span>
+        </div>
+        <div class="two-col">
+          <div>
+            <div class="detail-block">
+              <div class="dl">Snowflake approach</div>
+              <p>Cursor-based rule iteration replaced with set-based execution using <code>T_RULES</code> and <code>T_SOURCE_LINES</code> temp tables, sorted by <code>ExecutionSequence</code>. <code>WAITFOR DELAY</code> / <code>sp_getapplock</code> dropped — no equivalent needed in Snowflake's serverless model. Dry-run mode preserved via <code>p_dry_run</code> flag gating the final INSERT. <code>AllocationSourceLineID</code> lineage preserved through explicit column mapping.</p>
+            </div>
+          </div>
+          <div>
+            <div class="detail-block">
+              <div class="dl">Validation outcome</div>
+              <p>Procedure executed in 6.2s. Allocated <strong>14 rows</strong> with dry_run=false. Source rows correctly marked as allocated. Generated rows reference valid source lines through <code>AllocationSourceLineID</code>. Referential integrity verified across GL accounts, cost centers, and fiscal periods. No duplicate allocated rows at expected business grain.</p>
+            </div>
+          </div>
+        </div>
+        <div class="outcome-row">
+          <span class="outcome-chip">rows_allocated: 14</span>
+          <span class="outcome-chip">dry_run: false</span>
+          <span class="outcome-chip">source rows marked: ✓</span>
+          <span class="outcome-chip">lineage preserved: ✓</span>
+          <span class="outcome-chip">status: SUCCESS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- VALIDATION FRAMEWORK -->
+    <div class="section-label mb8">Validation framework</div>
+    <p style="font-size:12.5px; color:var(--sf-gray); margin-bottom:14px;">The same four-layer framework was applied to all three procedures, making it repeatable across different business logic domains.</p>
+    <div class="validation-grid mb24">
+      <div class="val-layer">
+        <div class="layer-num">01</div>
+        <div class="layer-title">Pre-run Readiness</div>
+        <ul>
+          <li>Source budget header exists and is in eligible status</li>
+          <li>Required reference data seeded (GL accounts, cost centers, fiscal periods)</li>
+          <li>Procedure-specific preconditions met (e.g. intercompany flags, allocation rules active)</li>
+        </ul>
+      </div>
+      <div class="val-layer">
+        <div class="layer-num">02</div>
+        <div class="layer-title">Execution Check</div>
+        <ul>
+          <li>Procedure completes without runtime error</li>
+          <li>Returns SUCCESS status in VARIANT output</li>
+          <li>Key metadata fields populated (IDs, row counts, report objects)</li>
+        </ul>
+      </div>
+      <div class="val-layer">
+        <div class="layer-num">03</div>
+        <div class="layer-title">Post-run Business Validation</div>
+        <ul>
+          <li>Output row counts match expected business logic (e.g. rollup factor, pair count)</li>
+          <li>Business-level outcomes correct (consolidation amounts, zero variance, allocated rows)</li>
+          <li>Source state mutations applied correctly (status updates, IsAllocated flags)</li>
+        </ul>
+      </div>
+      <div class="val-layer">
+        <div class="layer-num">04</div>
+        <div class="layer-title">Structural Data Quality</div>
+        <ul>
+          <li>Referential integrity across all FK relationships</li>
+          <li>Required output columns fully populated (no NULLs in NOT NULL fields)</li>
+          <li>No duplicate rows at expected business grain</li>
+          <li>Regression-safe: framework reusable with different parameters</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MIGRATION ISSUES -->
+    <div class="section-label mb8">Observed migration-time issues &amp; adaptations</div>
+    <ul class="issues-list mb24">
+      <li>
+        <span class="tag">VARCHAR WIDTH</span>
+        <span>SQL Server <code>NVARCHAR(MAX)</code> columns mapped to Snowflake <code>VARCHAR</code> defaults that caused truncation on long procedure output strings. Widened selected columns to preserve data integrity without altering business logic.</span>
+      </li>
+      <li>
+        <span class="tag">TIMESTAMP</span>
+        <span>SQL Server <code>DATETIME2</code> defaults using <code>SYSUTCDATETIME()</code> replaced with Snowflake <code>TIMESTAMP_NTZ</code> + <code>SYSDATE()</code>. Behavioral equivalence confirmed through execution timing checks.</span>
+      </li>
+      <li>
+        <span class="tag">SOURCE SCHEMA</span>
+        <span>Some source object definitions contained SQL Server-specific runtime assumptions that did not carry over cleanly. Adaptations documented as explicit migration assumptions, not silent schema edits, to preserve auditability.</span>
+      </li>
+      <li>
+        <span class="tag">VARIABLE SCOPING</span>
+        <span>SQL Server procedure variables referenced inside inner scopes without rebinding. Snowflake requires explicit colon-prefixed binding in SQL contexts (<code>:v_var</code>). Refactored all variable references accordingly.</span>
+      </li>
+    </ul>
+
+    <!-- AI USAGE -->
+    <div class="section-label mb8">Role of AI in this migration</div>
+    <table class="ai-table mb16">
+      <thead>
+        <tr>
+          <th>AI Tool</th>
+          <th>Where it was useful</th>
+          <th>Where manual work was required</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>SnowConvert AI</strong></td>
+          <td class="good">Object scaffolding, dependency graph, initial syntax translation patterns, surfacing likely incompatibilities quickly</td>
+          <td class="limited">Complex procedures with cursors, TVPs, XML parsing, and OUTPUT INTO required full manual redesign — SnowConvert output was not executable as-is for these</td>
+        </tr>
+        <tr>
+          <td><strong>Cortex (Snowflake)</strong></td>
+          <td class="good">Initial exploration of procedural rewrite options, quick lookup of Snowflake SQL equivalents</td>
+          <td class="limited">Tended to drift from actual business logic when followed literally for complex multi-step procedures. Used for exploration only, not final logic design</td>
+        </tr>
+        <tr>
+          <td><strong>AI (general)</strong></td>
+          <td class="good">Drafting parts of validation documentation structure; speeding up investigation of Snowflake-specific function equivalents</td>
+          <td class="limited">All validation criteria, migration assumptions, business logic interpretation, debugging, and test data design were manual</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="background:var(--sf-light); border-left:3px solid var(--sf-blue); padding:12px 16px; font-size:12.5px; color:var(--sf-mid); margin-bottom:0;">
+      <strong>Summary:</strong> AI was most effective as an accelerator for discovery and initial translation, and weakest for end-to-end correctness in procedures involving hierarchy rollups, pair-matching reconciliation logic, or allocation dependency sequencing. For those cases, correctness required manual reasoning about intent, not prompt refinement.
+    </div>
+
+    <!-- OUTCOME BANNER -->
+    <div class="outcome-banner">
+      <div>
+        <div class="headline">3 procedures migrated, validated, and production-ready on Snowflake</div>
+        <div class="sub">Consolidation · Intercompany Reconciliation · Cost Allocation — covering three distinct financial planning workflows</div>
+      </div>
+      <div class="outcome-procs">
+        <span class="proc-badge">usp_ProcessBudgetConsolidation</span>
+        <span class="proc-badge">usp_ReconcileIntercompanyBalances</span>
+        <span class="proc-badge">usp_ExecuteCostAllocation</span>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /page -->
+</body>
+</html>
