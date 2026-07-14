@@ -1,29 +1,29 @@
 export const siteContent = {
   name: "Noshitha Juttu",
-  role: "AI & Data Systems Engineer",
+  role: "Forward Deployed Data & AI Engineer",
   shortRole:
-    "AI & data systems engineer building applied AI products",
+    "Customer-facing data and AI engineer building production systems",
   location: "San Francisco, California",
   locationShort: "California",
-  availabilityShort: "Open to AI, data, and software roles",
+  availabilityShort: "Open to forward deployed, data platform, and AI roles",
   availability:
-    "Open to Applied AI, LLM Systems, AI Products, Data Platform, ML/MLOps, and Forward Deployed AI roles.",
+    "Open to Forward Deployed Engineering, Data Platform, Applied AI, AI Systems, Analytics Engineering, and ML infrastructure roles.",
   tagline:
-    "Building applied AI products, LLM workflows, and production-grade data platforms across retrieval, inference optimization, and cloud data infrastructure.",
+    "Building customer-ready data platforms, AI workflows, and lightweight analytics applications across cloud infrastructure and applied machine learning.",
   summary:
-    "I build at the intersection of AI systems, data infrastructure, and product execution. My background spans production data engineering at Deloitte, applied NLP and on-device model optimization with Adobe x UMass, and agentic AI research at UMass Amherst. I'm focused on turning strong data foundations into reliable AI products - from RAG and multi-agent workflows to scalable pipelines, model evaluation, and inference-ready systems.",
+    "I build at the intersection of customer-facing engineering, data infrastructure, and applied AI. My background spans production data delivery at Deloitte, deployment-focused NLP optimization with Adobe x UMass, and agentic AI research at UMass Amherst. I focus on turning ambiguous requirements into governed datasets, production workflows, and AI-enabled applications that hold up beyond the demo.",
   heroImage:
     "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1800&q=80",
   profileImage: "/Noshitha_Profile_Picture.jpeg",
   heroFocusLabel: "Core Areas",
   focusAreas: [
-    "AI systems",
-    "Retrieval pipelines",
-    "LLM inference optimization",
-    "NLP",
-    "Multi-agent systems",
-    "Data infrastructure",
-    "Data Engineering",
+    "Customer deployments",
+    "Data engineering",
+    "Cloud pipelines",
+    "Analytics apps",
+    "AI workflows",
+    "LLM evaluation",
+    "Data governance",
   ],
   navItems: [
     { label: "About", href: "#about" },
@@ -66,15 +66,15 @@ export const siteContent = {
   sections: {
     experience: {
       eyebrow: "Experience",
-      title: "Research, applied AI, and production data systems.",
+      title: "Customer-facing delivery, applied AI, and production data systems.",
       description:
-        "My work spans research labs, model optimization, and large-scale enterprise data platforms — with a focus on systems that are measurable, deployable, and reliable.",
+        "My work spans enterprise client delivery, model optimization, and large-scale data platforms, with a focus on systems that are deployable, reliable, and useful to real teams.",
     },
     projects: {
       eyebrow: "Projects",
-      title: "Selected systems and applied research work.",
+      title: "Selected systems, data products, and applied research work.",
       description:
-        "A mix of retrieval, inference, embedded ML, and analytical systems built across coursework, research, and applied engineering work.",
+        "A mix of analytical systems, retrieval workflows, inference optimization, and fast prototypes built around measurable user value.",
       linkLabel: "View project",
     },
     hackathons: {
@@ -103,16 +103,16 @@ export const siteContent = {
   },
   about: {
     eyebrow: "About",
-    title: "Production data foundations. Applied AI systems. Product-minded execution.",
+    title: "Production data foundations. Customer-facing delivery. Applied AI systems.",
     body: [
-      "My work started in data science, where I learned how clean data, simple statistical reasoning, and clear interpretation can influence real decisions. I later moved into data and AI engineering at Deloitte, spending nearly 2.5 years building production pipelines, cloud data platforms, and analytics systems across healthcare, energy, and public utility clients. That experience taught me how to integrate messy systems, optimize workflows, and deliver under real business constraints.",
-      "At UMass Amherst, I deepened my focus on AI, NLP, and systems research. I have worked on on-device NLP optimization with Adobe x UMass, multi-agent clinical reasoning at the UMass BioNLP Lab, and rapid AI product prototypes across legal AI, retrieval, graph-based reasoning, and edge/cloud inference. Across these projects, my focus is consistent: build AI systems that are measurable, reliable, and useful beyond the demo.",
+      "My work started in data science, where I learned how clean data, careful reasoning, and clear communication influence real decisions. I later moved into data and AI engineering at Deloitte, spending nearly 2.5 years building production pipelines, cloud platforms, and analytics systems for healthcare, energy, and public utility clients. That experience taught me how to navigate messy systems, stakeholder ambiguity, and operational constraints while still shipping.",
+      "At UMass Amherst, I deepened my focus on AI, NLP, and systems research. I have worked on deployment-focused NLP optimization with Adobe x UMass, multi-agent clinical reasoning at the UMass BioNLP Lab, and rapid AI prototypes across legal AI, retrieval, graph reasoning, and edge/cloud inference. Across all of it, the throughline is the same: build systems that are measurable, production-minded, and genuinely useful to end users.",
     ],
     stats: [
       { label: "Experience", value: "3+ Years" },
       { label: "Research", value: "2 Publications + 1 Under Review" },
-      { label: "Background", value: "Deloitte · Adobe Research" },
-      { label: "Rapid Prototypes", value: "3 Builds · Each < 1 Day" },
+      { label: "Background", value: "Deloitte · Adobe x UMass" },
+      { label: "Enterprise Delivery", value: "25+ Production Pipelines" },
     ],
   },
   experience: [
@@ -232,6 +232,20 @@ export const siteContent = {
   ],
   projects: [
     {
+      title: "Snowflake-Native Procedure Migration & Validation Framework",
+      type: "Snowflake · SQL Migration · Validation Engineering",
+      description:
+        "Migrated and validated 3 SQL Server financial-planning procedures into Snowflake-native SQL, writing 769 lines of Snowflake SQL, manually refactoring 12 SQL Server-only constructs, and building a 4-layer validation framework to prove business-logic correctness beyond compile success.",
+      tags: [
+        "Snowflake",
+        "SnowConvert AI",
+        "Stored Procedures",
+        "SQL Migration",
+        "Validation Framework",
+      ],
+      link: "/SnowConvert_TakeHome_Noshitha_Juttu.html",
+    },
+    {
       title: "SaulLM-7B-AnomalyDetector",
       type: "Model Card · Legal NLP · LoRA Fine-Tune",
       description:
@@ -249,24 +263,40 @@ export const siteContent = {
     },
     {
       title: "RAG-based Research Copilot",
-      type: "Retrieval · NLP Systems",
+      type: "Multi-Agent Retrieval · Research Analytics",
       description:
-        "Built modular retrieval and indexing pipelines using LangGraph, Hugging Face, and semantic search to automate literature ingestion, search, and topic discovery.",
+        "Built a LangGraph-orchestrated research assistant that retrieves arXiv papers through MCP, summarizes them locally with BART, clusters related work with Sentence-BERT and K-Means, and presents topic trends in an interactive Streamlit dashboard.",
       tags: [
         "LangGraph",
-        "RAG",
+        "MCP",
+        "BART",
         "Sentence-Transformers",
-        "Semantic Search",
+        "K-Means",
+        "Streamlit",
       ],
       link: "https://github.com/Noshitha/rag_research_copilot",
     },
     {
-      title: "Automated SQL View Generation & Entropy-Based Ranking Engine",
-      type: "Data Systems · Analytical Ranking",
+      title: "Repository-Specific AGENTS.md Generator & Evaluation Pipeline",
+      type: "Coding Agents · Evaluation Systems",
       description:
-        "Engineered KL-divergence-based ranking, in-memory caching, and pruning to prioritize analytical views, improve throughput, and reduce query runtime from 10s to under 2s.",
-      tags: ["SQL", "KL Divergence", "SQLite", "Optimization"],
-      link: "https://github.com/Noshitha/SEEDDB_Visual_Recommendation_System",
+        "Built a static-analysis pipeline that generates repository-specific AGENTS.md instructions, then evaluates their effect on coding-agent behavior through single-turn and multi-turn A/B tests, execution traces, safety metrics, and statistical significance testing.",
+      tags: [
+        "Coding Agents",
+        "Static Analysis",
+        "A/B Evaluation",
+        "Mann-Whitney U",
+        "Python",
+      ],
+      link: "https://github.com/Noshitha/agents-md-generator",
+    },
+    {
+      title: "Data-Driven Visualization Recommendation Engine",
+      type: "Visual Analytics · Query Optimization",
+      description:
+        "Reproduced the SeeDB visualization-recommendation approach on UCI Census data, using shared aggregate-query optimization and KL-divergence-based pruning to rank top-K views that surface meaningful cohort differences.",
+      tags: ["Python", "SQLite", "KL Divergence", "Pandas", "Visual Analytics"],
+      link: "https://github.com/Noshitha/Data-Driven-Visualization-Recommendation-Engine",
     },
     {
       title: "Hand Gesture Controlled UAV / IMU-Based Gesture Recognition",
@@ -278,6 +308,28 @@ export const siteContent = {
     },
   ],
   hackathons: [
+    {
+      title: "SnapKnow: On-Device Memory Assistant",
+      hackathon: "Rapid Prototype · Edge AI",
+      theme: "Private, on-device contextual memory assistance",
+      buildTime: "Rapid Prototype",
+      type: "Prototype · Android + Edge AI",
+      description:
+        "Built an Android memory assistant for people with dementia that uses camera and voice interactions to remember people, objects, and context locally, with ExecuTorch and Qualcomm QNN powering on-device inference on a Samsung Galaxy S25 Ultra.",
+      tags: ["ExecuTorch", "Qualcomm QNN", "Android", "Kotlin", "Edge AI"],
+      link: "https://github.com/Noshitha/ExecuTorch-Edge-SnapOn",
+    },
+    {
+      title: "Enterprise Email Suggested-Response Agent",
+      hackathon: "Hiver 100-Minute Open Challenge",
+      theme: "Retrieval-grounded support automation and evaluation",
+      buildTime: "100 minutes",
+      type: "Challenge Build · Applied AI",
+      description:
+        "Built an evaluation-first support-email pipeline that triages reply intent, retrieves relevant historical examples, generates grounded drafts, and scores each response with deterministic safety guardrails, reference similarity, and an optional LLM judge.",
+      tags: ["RAG", "Email AI", "TF-IDF", "LLM Evaluation", "Python"],
+      link: "https://github.com/Noshitha/enterprise-email-response-agent",
+    },
     {
       title: "BriefCheck",
       hackathon: "Stanford CodeX Law Hackathon",
@@ -397,9 +449,9 @@ export const siteContent = {
     ],
   },
   contact: {
-    title: "Let’s build AI systems that hold up beyond the demo.",
+    title: "Let’s build data and AI systems that work in production.",
     description:
-      "I’m open to applied AI, AI systems, retrieval, ML infrastructure, and data platform roles — especially work that sits between research ideas and production systems.",
+      "I’m open to forward deployed engineering, data platform, and applied AI roles — especially work that sits between customer needs, production systems, and practical AI delivery.",
   },
 };
 
